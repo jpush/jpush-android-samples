@@ -1,4 +1,6 @@
-package com.jpush.examples;
+package cn.jpush.android.samples;
+
+import com.jpush.examples.R;
 
 import android.os.Bundle;
 import android.app.Activity;
