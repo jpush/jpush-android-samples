@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">极光SDK API</string>
+    
+    <string name="developing">施工中。。。。</string>
+    
+	<string name="titlern">接收通知</string>
+	<string name="receive_notification_clear">清除内容</string>
+	<string name="rece_noti_title_description">从广播中得到最近一条通知，如果有标题内容将会显示在这里,包括extra中的jason格式信息</string>
+	<string name="rece_noti_content_description">获取到的最近一条通知内容显示在这里</string>
+	
+	<string name="titlerm">接收消息</string>
+	
+	<string name="titlesettagalias">标签别名设置</string>
+	
+	<string name="titlesetalias">别名设置</string>
+	
+	<string name="titleadvnotification">通知高级设置</string>
+	
+	<string name="titlepushtime">推送时间设置</string>
+	
+	<string name="titlerichpush">富文本推送</string>
+	
+	<string name="titlepushswitcher">打开\/关闭推送</string>
+	<string name="startpush">打开推送</string>
+	<string name="closepush">关闭推送</string>
+	<string name="pushstatus">服务:%1$s</string>
+	<string name="ispushstop">点击获取推送状态</string>
+	<string name="running">运行</string>
+	<string name="closing">关闭</string>
+	
+	<string name="titlesetdebug">打开关闭调试</string>
+	<string name="debugopen">打开调试</string>
+	<string name="debugclose">关闭调试</string>
+	<string name="debuginfoopen">你已打开SDK调试模式，可在Logcat中查看SDK的输出，tag名为JPush</string>
+	<string name="debuginfoclose">SDK 调试模式关闭</string>
+</resources>

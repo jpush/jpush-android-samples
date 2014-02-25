@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal" >
+
+    <Button
+        android:id="@+id/startpush"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginBottom="20dp"
+        android:layout_marginLeft="38dp"
+        android:gravity="center_horizontal|center"
+        android:onClick="clickStartPush"
+        android:text="@string/startpush" />
+
+    <Button
+        android:id="@+id/closepush"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/startpush"
+        android:layout_alignBottom="@+id/startpush"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="40dp"
+        android:gravity="center_horizontal|center"
+        android:onClick="clickClosePush"
+        android:text="@string/closepush" />
+
+    <TextView
+        android:id="@+id/pushstatus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/ispushstop"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="14dp"
+        android:text="@string/pushstatus"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <Button
+        android:id="@+id/ispushstop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:onClick="isPushStop"
+        android:text="@string/ispushstop" />
+
+</RelativeLayout>

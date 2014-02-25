@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <EditText
+        android:id="@+id/receive_notification_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/rece_noti_title_description"
+        android:ems="10"
+        android:inputType="textMultiLine">
+    </EditText>
+
+    <EditText
+        android:id="@+id/receive_notification_content"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.95"
+        android:ems="10"
+        android:hint="@string/rece_noti_content_description"
+        android:inputType="textMultiLine" />
+
+    <Button
+        android:id="@+id/receive_notification_clear_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/receive_notification_clear"
+        android:onClick="clickToClear" />
+
+</LinearLayout>
