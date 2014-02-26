@@ -3,13 +3,15 @@
     <string name="app_name">Jpush SDK API</string>
     
     <string name="developing">developing.</string>
+    <string name="unknown">undefined content</string>
     
-	<string name="titlern">Receive Notification</string>
+	<string name="titlernAndRm">Receive Notification and Message</string>
 	<string name="receive_notification_clear">clear</string>
-	<string name="rece_noti_title_description">receive the latest notification, if there is a title, then it will display here, include extra info with json format</string>
-	<string name="rece_noti_content_description">the latest notification content should also display here</string>
-	
-	<string name="titlerm">Receive Message</string>
+	<string name="rece_noti_title_description">receive the latest notification, if there is a title, then it will display here</string>
+	<string name="rece_noti_content_description">the latest notification content should also display here, include extra info with json format</string>
+	<string name="newnotification">receive a new notification</string>
+	<string name="newmessage">receive a new message</string>
+	<string name="noextra">no extras</string>
 	
 	<string name="titlesettagalias">Set Alias and TAG</string>
 	

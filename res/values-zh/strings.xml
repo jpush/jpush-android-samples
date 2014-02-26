@@ -3,14 +3,16 @@
     <string name="app_name">极光SDK API</string>
     
     <string name="developing">施工中。。。。</string>
+    <string name="unknown">未定义内容</string>
     
-	<string name="titlern">接收通知</string>
+	<string name="titlernAndRm">接收通知和消息</string>
 	<string name="receive_notification_clear">清除内容</string>
-	<string name="rece_noti_title_description">从广播中得到最近一条通知，如果有标题内容将会显示在这里,包括extra中的jason格式信息</string>
-	<string name="rece_noti_content_description">获取到的最近一条通知内容显示在这里</string>
-	
-	<string name="titlerm">接收消息</string>
-	
+	<string name="rece_noti_title_description">从广播中得到最近一条通知，如果有标题内容将会显示在这里</string>
+	<string name="rece_noti_content_description">获取到的最近一条通知内容显示在这里,包括extra中的解析后json格式信息</string>
+	<string name="newnotification">接收到一条新的通知</string>
+	<string name="newmessage">接收到一条新的消息</string>
+	<string name="noextra">没有附加信息</string>
+		
 	<string name="titlesettagalias">标签别名设置</string>
 	
 	<string name="titlesetalias">别名设置</string>

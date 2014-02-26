@@ -1,7 +1,10 @@
 package com.jpush.examples;
 
+import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
+import com.jpush.examples.utilities.BoardTextView;
 import com.jpush.examples.utilities.Lg;
 
 import cn.jpush.android.api.InstrumentedActivity;
@@ -11,12 +14,24 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.view.View;
-import android.widget.EditText;
+import android.widget.Toast;
 
 public class SampleReceNotification extends InstrumentedActivity {
-	private String TAG = "Receive Notification";
+	final private String TAG = "Receive Notification";
+	final private String Delimeter = "-------->";
+	final private int MSG_NEW_RECEIVE = 1;
+	
+	public enum ReceiveType {
+		TYPE_NOTIFICATION,
+		TYPE_MESSAGE
+	}
+	
 	private ListenBroadcast listener;
+	private Handler mHandler;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
@@ -27,12 +42,22 @@ public class SampleReceNotification extends InstrumentedActivity {
 		listener = new ListenBroadcast();
 		
 		IntentFilter filter = new IntentFilter();
-		
+		filter.addAction(JPushInterface.ACTION_MESSAGE_RECEIVED);
 		filter.addAction(JPushInterface.ACTION_NOTIFICATION_RECEIVED);
 		filter.addAction(JPushInterface.ACTION_NOTIFICATION_OPENED);
 		filter.addCategory(getPackageName());
 		
 		registerReceiver(listener, filter);
+		
+		mHandler = new Handler() {
+			@Override
+			public void handleMessage(Message msg) {
+				switch (msg.what) {
+					case MSG_NEW_RECEIVE:
+						Toast.makeText(getApplicationContext(), msg.arg1, Toast.LENGTH_LONG).show();
+				}
+			}
+		};
 	}
 	
 	class ListenBroadcast extends BroadcastReceiver {
@@ -41,33 +66,57 @@ public class SampleReceNotification extends InstrumentedActivity {
 			// TODO Auto-generated method stub
 			Bundle bundle = intent.getExtras();
 			
-			if (JPushInterface.ACTION_REGISTRATION_ID.equals(intent.getAction())) {
-	             /* 这里不处理 */
-	        } else if (JPushInterface.ACTION_MESSAGE_RECEIVED.equals(intent.getAction())) {
-	        	/* 这里不处理 */
-	        } else if (JPushInterface.ACTION_NOTIFICATION_RECEIVED.equals(intent.getAction())) {
-    
-	            receivingNotification(context, bundle);
-	 
-	        } else if (JPushInterface.ACTION_NOTIFICATION_OPENED.equals(intent.getAction())) {
-      
-	           openNotification(context, bundle);
-	 
+			if (JPushInterface.ACTION_MESSAGE_RECEIVED.equals(intent.getAction())) { 
+				receivingNotification(context, bundle, ReceiveType.TYPE_MESSAGE);
+			} else if (JPushInterface.ACTION_NOTIFICATION_RECEIVED.equals(intent.getAction())) {
+				receivingNotification(context, bundle, ReceiveType.TYPE_NOTIFICATION);
+	 	    } else if (JPushInterface.ACTION_NOTIFICATION_OPENED.equals(intent.getAction())) {
+	 	    	openNotification(context, bundle);
 	        } else {
 	            Lg.d(TAG, "Unhandled intent - " + intent.getAction());
 	        }
 		}
 	}
 	
-	private void receivingNotification(Context context, Bundle bundle){
+	private void newReceiveInfo(ReceiveType type) {
+		int resID;
+		
+		switch (type) {
+			case TYPE_NOTIFICATION:
+				resID = R.string.newnotification;
+				break;
+			case TYPE_MESSAGE:
+				resID = R.string.newmessage;
+				break;
+			default:
+				return;
+		}
+		
+		Message msg = mHandler.obtainMessage(MSG_NEW_RECEIVE, resID, 0);
+		mHandler.sendMessage(msg);
+	}
+	
+	private void receivingNotification(Context context, Bundle bundle, ReceiveType type){
         String title = bundle.getString(JPushInterface.EXTRA_NOTIFICATION_TITLE);
         Lg.d(TAG, " title : " + title);
-        String notification = bundle.getString(JPushInterface.EXTRA_ALERT);
-        Lg.d(TAG, "message : " + notification);
+        String content;
+        
+        if (type == ReceiveType.TYPE_NOTIFICATION)
+        	content = bundle.getString(JPushInterface.EXTRA_ALERT);
+        else if (type == ReceiveType.TYPE_MESSAGE)
+        	content = bundle.getString(JPushInterface.EXTRA_MESSAGE);
+        else
+        	content = getString(R.string.unknown);
+        
+        Lg.d(TAG, "message : " + content);
         String extras = bundle.getString(JPushInterface.EXTRA_EXTRA);
         Lg.d(TAG, "extras : " + extras);
         
-        displayResult(title, notification, extras);
+        if (extras == null || extras.isEmpty())
+        	extras = getString(R.string.noextra);
+        
+        newReceiveInfo(type);
+        displayResult(title, content, extras);
     } 
  
    private void openNotification(Context context, Bundle bundle){
@@ -91,22 +140,45 @@ public class SampleReceNotification extends InstrumentedActivity {
     }
    
    private void displayResult(String title, String notification, String extra) {
-	   EditText titleText = (EditText) findViewById(R.id.receive_notification_title);
+	    BoardTextView titleText = (BoardTextView) findViewById(R.id.receive_notification_title);
 		
-		EditText titleContent = (EditText) findViewById(R.id.receive_notification_content);
+	    BoardTextView titleContent = (BoardTextView) findViewById(R.id.receive_notification_content);
 		
 		titleText.setText(title);
-		String content = notification + "\n" + extra;
+		String content = notification + "\nresult of parse Json content :\n" + parseJson(extra);
 		titleContent.setText(content);
 		
 		titleText.postInvalidate();
 		titleContent.postInvalidate();
    }
+   
+   private String parseJson(String json) {
+	   String result = "";
+	   if (json == null || json.isEmpty())
+		   return null;
+	   
+	   try {
+			JSONObject extrasJson = new JSONObject(json);
+			JSONArray arr = extrasJson.names();
+			int count = arr.length();
+			String key = null;
+			for (int i = 0; i < count; i++) {
+				key = arr.getString(i);
+				result += key + Delimeter + extrasJson.getString(key) + "\n";
+			}
+		} catch (JSONException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return json;
+		}
+
+	   return result;
+   }
 	
 	public void clickToClear(View v) {
-		EditText titleText = (EditText) findViewById(R.id.receive_notification_title);
+		BoardTextView titleText = (BoardTextView) findViewById(R.id.receive_notification_title);
 		
-		EditText titleContent = (EditText) findViewById(R.id.receive_notification_content);
+		BoardTextView titleContent = (BoardTextView) findViewById(R.id.receive_notification_content);
 		
 		titleText.setText("");
 		titleContent.setText("");

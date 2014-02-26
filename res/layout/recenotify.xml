@@ -4,29 +4,24 @@
     android:layout_height="match_parent"
     android:orientation="vertical" >
 
-    <EditText
+    <com.jpush.examples.utilities.BoardTextView
         android:id="@+id/receive_notification_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/rece_noti_title_description"
-        android:ems="10"
-        android:inputType="textMultiLine">
-    </EditText>
+        android:hint="@string/rece_noti_title_description"/>
 
-    <EditText
+    <com.jpush.examples.utilities.BoardTextView
         android:id="@+id/receive_notification_content"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="0.95"
-        android:ems="10"
-        android:hint="@string/rece_noti_content_description"
-        android:inputType="textMultiLine" />
+        android:hint="@string/rece_noti_content_description"/>
 
     <Button
         android:id="@+id/receive_notification_clear_label"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/receive_notification_clear"
-        android:onClick="clickToClear" />
+        android:onClick="clickToClear"
+        android:text="@string/receive_notification_clear" />
 
 </LinearLayout>

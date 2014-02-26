@@ -53,14 +53,7 @@
             </intent-filter>
         </activity>
         
-        <activity android:name=".SampleReceNotification" android:label="@string/titlern">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="com.jpush.examples.SAMPLE_CODE" />
-            </intent-filter>
-        </activity>
-        
-        <activity android:name=".SampleReceMessage" android:label="@string/titlerm">
+        <activity android:name=".SampleReceNotification" android:label="@string/titlernAndRm">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="com.jpush.examples.SAMPLE_CODE" />

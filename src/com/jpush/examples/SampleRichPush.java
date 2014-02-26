@@ -1,7 +1,6 @@
 package com.jpush.examples;
 
 import cn.jpush.android.api.InstrumentedActivity;
-import android.app.Activity;
 import android.os.Bundle;
 
 public class SampleRichPush extends InstrumentedActivity {
