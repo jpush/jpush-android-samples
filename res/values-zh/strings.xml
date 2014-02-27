@@ -5,6 +5,8 @@
     <string name="developing">施工中。。。。</string>
     <string name="unknown">未定义内容</string>
     
+    <string name="set">设置 </string>
+    
 	<string name="titlernAndRm">接收通知和消息</string>
 	<string name="receive_notification_clear">清除内容</string>
 	<string name="rece_noti_title_description">从广播中得到最近一条通知，如果有标题内容将会显示在这里</string>
@@ -14,12 +16,36 @@
 	<string name="noextra">没有附加信息</string>
 		
 	<string name="titlesettagalias">标签别名设置</string>
+	<string name="aliashint">"在这里设置别名，比如alias1,alias2..,空白表示清除"</string>
+	<string name="taghint">"在这里设置标签，比如tag1,tag2..,空白表示清除"</string>
+	<string name="excuteset">设置</string>
+	<string name="resultofset">设置结果:序号—操作—结果(重试次数)</string>
+	<string name="warningalias">别名将被清空</string>
+	<string name="warningtag">标签将被清空</string>
+	<string name="warningall">别名和标签将被清空</string>
+	<string name="infoalias">开始设置别名</string>
+	<string name="infotag">开始设置标签</string>
+	<string name="infoall">开始设置别名和标签</string>
+	<string name="maxexcute">设置数量太多，请先等待返回结果</string>
+	<string name="infotoset">请至少勾选一项设置</string>
 	
 	<string name="titlesetalias">别名设置</string>
 	
 	<string name="titleadvnotification">通知高级设置</string>
 	
 	<string name="titlepushtime">推送时间设置</string>
+	<string name="timestart">起始:</string>
+	<string name="timeend">结束</string>
+	<string name="sunday">星期天</string>
+	<string name="monday">星期一</string>
+	<string name="tuesday">星期二</string>
+	<string name="wednesday">星期三</string>
+	<string name="thursday">星期四</string>
+	<string name="friday">星期五</string>
+	<string name="saturday">星期六</string>
+	<string name="pushtimeerror">没有选择星期</string>
+	<string name="pushtimesameerror">起始时间和结束时间不能一样</string>
+	<string name="pushtimecomplete">推送时间设置完成.</string>
 	
 	<string name="titlerichpush">富文本推送</string>
 	

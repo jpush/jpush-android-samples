@@ -56,6 +56,8 @@ public class SampleReceNotification extends InstrumentedActivity {
 					case MSG_NEW_RECEIVE:
 						Toast.makeText(getApplicationContext(), msg.arg1, Toast.LENGTH_LONG).show();
 				}
+				
+				super.handleMessage(msg);
 			}
 		};
 	}

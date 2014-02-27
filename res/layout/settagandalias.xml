@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <EditText
+        android:id="@+id/setAlias"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="15dp"
+        android:layout_toLeftOf="@+id/toggleAlias"
+        android:ems="10"
+        android:inputType="textMultiLine"
+        android:hint="@string/aliashint"
+        android:lines="3" >
+
+        <requestFocus />
+    </EditText>
+
+    <CheckBox
+        android:id="@+id/toggleAlias"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/setAlias"
+        android:layout_alignBottom="@+id/setAlias"
+        android:layout_alignParentRight="true"
+        android:checked="true"
+        android:onClick="toggleAlias" />
+
+    <EditText
+        android:id="@+id/setTAG"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/setAlias"
+        android:layout_alignRight="@+id/setAlias"
+        android:layout_below="@+id/setAlias"
+        android:layout_marginTop="15dp"
+        android:ems="10"
+        android:inputType="textMultiLine"
+        android:hint="@string/taghint"
+        android:lines="3" />
+
+    <CheckBox
+        android:id="@+id/toggleTAG"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/setTAG"
+        android:layout_alignBottom="@+id/setTAG"
+        android:layout_alignParentRight="true"
+        android:checked="true"
+        android:onClick="toggleTAG" />
+
+    <Button
+        android:id="@+id/excuteSet"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="15dp"
+        android:onClick="excuteSet"
+        android:text="@string/excuteset" />
+
+    <com.jpush.examples.utilities.BoardTextView
+        android:id="@+id/resultOfSet"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/excuteSet"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="40dp"
+        android:lines="6"
+        android:text=""
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <TextView
+        android:id="@+id/infoResultofSet"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/resultOfSet"
+        android:layout_alignParentLeft="true"
+        android:layout_marginBottom="15dp"
+        android:text="@string/resultofset"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+</RelativeLayout>

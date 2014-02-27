@@ -5,6 +5,8 @@
     <string name="developing">developing.</string>
     <string name="unknown">undefined content</string>
     
+    <string name="set">Set</string>
+    
 	<string name="titlernAndRm">Receive Notification and Message</string>
 	<string name="receive_notification_clear">clear</string>
 	<string name="rece_noti_title_description">receive the latest notification, if there is a title, then it will display here</string>
@@ -14,12 +16,37 @@
 	<string name="noextra">no extras</string>
 	
 	<string name="titlesettagalias">Set Alias and TAG</string>
+	<string name="aliashint">here can set alias, such as alias1,alias2,blank will clear all alias</string>
+	<string name="taghint">"here can set tag, such as tag1,tag2,blank will clear all tag"</string>
+	<string name="excuteset">set</string>
+	<string name="resultofset">result of set:number—operator—result(number of trial)</string>
+	<string name="warningalias">alias will be cleared</string>
+	<string name="warningtag">TAG will be cleared</string>
+	<string name="warningall">TAG and alias will be cleared</string>
+	<string name="infoalias">start set alias</string>
+	<string name="infotag">start set TAG</string>
+	<string name="infoall">start set TAG and alias</string>
+	<string name="excuteresult">"%1$s(%2$d)"</string>
+	<string name="maxexcute">Please wait for at least one operation has finished</string>
+	<string name="infotoset">Please selete an operator at least</string>
 	
 	<string name="titlesetalias">Set Alias</string>
 	
 	<string name="titleadvnotification">Advanced Notification</string>
 	
 	<string name="titlepushtime">Set Push time</string>
+	<string name="timestart">Start:</string>
+	<string name="timeend">End</string>
+	<string name="sunday">Sun.</string>
+	<string name="monday">Mon.</string>
+	<string name="tuesday">Tues.</string>
+	<string name="wednesday">Wedn.</string>
+	<string name="thursday">Thur.</string>
+	<string name="friday">Fri.</string>
+	<string name="saturday">sat.</string>
+	<string name="pushtimeerror">Please select a day at least</string>
+	<string name="pushtimesameerror">Start hour and end hour should be different</string>
+	<string name="pushtimecomplete">Set Push Time complete.</string>
 	
 	<string name="titlerichpush">Rich Push</string>
 	

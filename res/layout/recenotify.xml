@@ -8,14 +8,16 @@
         android:id="@+id/receive_notification_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/rece_noti_title_description"/>
+        android:hint="@string/rece_noti_title_description"
+        android:textAppearance="?android:attr/textAppearanceLarge"/>
 
     <com.jpush.examples.utilities.BoardTextView
         android:id="@+id/receive_notification_content"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="0.95"
-        android:hint="@string/rece_noti_content_description"/>
+        android:hint="@string/rece_noti_content_description"
+        android:textAppearance="?android:attr/textAppearanceLarge"/>
 
     <Button
         android:id="@+id/receive_notification_clear_label"
