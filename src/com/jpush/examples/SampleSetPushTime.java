@@ -71,7 +71,7 @@ public class SampleSetPushTime extends InstrumentedActivity {
 		
 		box = (CheckBox) findViewById(R.id.checkBox1);
 		if (box.isChecked())
-			days.add(0);/* this is represent for sunday */
+			days.add(0);/* this is represent for Sunday */
 		box = (CheckBox) findViewById(R.id.checkBox2);
 		if (box.isChecked())
 			days.add(1);

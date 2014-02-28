@@ -16,10 +16,10 @@
 	<string name="noextra">没有附加信息</string>
 		
 	<string name="titlesettagalias">标签别名设置</string>
-	<string name="aliashint">"在这里设置别名，比如alias1,alias2..,空白表示清除"</string>
+	<string name="aliashint">"在这里设置一个别名"</string>
 	<string name="taghint">"在这里设置标签，比如tag1,tag2..,空白表示清除"</string>
 	<string name="excuteset">设置</string>
-	<string name="resultofset">设置结果:序号—操作—结果(重试次数)</string>
+	<string name="resultofset">设置结果:序号—操作—结果(返回值)</string>
 	<string name="warningalias">别名将被清空</string>
 	<string name="warningtag">标签将被清空</string>
 	<string name="warningall">别名和标签将被清空</string>
@@ -28,6 +28,9 @@
 	<string name="infoall">开始设置别名和标签</string>
 	<string name="maxexcute">设置数量太多，请先等待返回结果</string>
 	<string name="infotoset">请至少勾选一项设置</string>
+	<string name="infosetting">设置中</string>
+	<string name="infosucc">成功</string>
+	<string name="infofail">失败</string>
 	
 	<string name="titlesetalias">别名设置</string>
 	

@@ -16,10 +16,10 @@
 	<string name="noextra">no extras</string>
 	
 	<string name="titlesettagalias">Set Alias and TAG</string>
-	<string name="aliashint">here can set alias, such as alias1,alias2,blank will clear all alias</string>
+	<string name="aliashint">here can set an alias</string>
 	<string name="taghint">"here can set tag, such as tag1,tag2,blank will clear all tag"</string>
 	<string name="excuteset">set</string>
-	<string name="resultofset">result of set:number—operator—result(number of trial)</string>
+	<string name="resultofset">result of set:number—operator—result(return code)</string>
 	<string name="warningalias">alias will be cleared</string>
 	<string name="warningtag">TAG will be cleared</string>
 	<string name="warningall">TAG and alias will be cleared</string>
@@ -29,6 +29,9 @@
 	<string name="excuteresult">"%1$s(%2$d)"</string>
 	<string name="maxexcute">Please wait for at least one operation has finished</string>
 	<string name="infotoset">Please selete an operator at least</string>
+	<string name="infosetting">setting</string>
+	<string name="infosucc">success</string>
+	<string name="infofail">failure</string>
 	
 	<string name="titlesetalias">Set Alias</string>
 	
