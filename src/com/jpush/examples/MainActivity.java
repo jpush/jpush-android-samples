@@ -132,7 +132,6 @@ public class MainActivity extends InstrumentedListActivity {
     @SuppressWarnings("unchecked")
     protected void onListItemClick(ListView l, View v, int position, long id) {
         Map<String, Object> map = (Map<String, Object>)l.getItemAtPosition(position);
-
         Intent intent = (Intent) map.get("intent");
         startActivity(intent);
     }

@@ -1,10 +1,12 @@
 package com.jpush.examples;
 
 import cn.jpush.android.api.InstrumentedActivity;
+import cn.jpush.android.api.JPushInterface;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 
 public class SampleAdvanceNotification extends InstrumentedActivity  {
 	@Override
@@ -18,8 +20,12 @@ public class SampleAdvanceNotification extends InstrumentedActivity  {
 		public void onReceive(Context context, Intent intent) {
 			// TODO Auto-generated method stub
 			
-			setContentView(R.layout.developing);
+			setContentView(R.layout.advsetting);
 		}
+	}
+	
+	public void clearAllNotification(View v) {
+		JPushInterface.clearAllNotifications(getApplication());
 	}
 
 	@Override

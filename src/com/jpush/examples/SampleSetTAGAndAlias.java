@@ -2,7 +2,6 @@ package com.jpush.examples;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -19,7 +18,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class SampleSetTAGAndAlias extends InstrumentedActivity {
-	final private String TAG = "Set alias and TAG";
 	final private int MAX_RESULT = 4;
 	final private String Delimeter = "--";
 	
@@ -271,12 +269,27 @@ public class SampleSetTAGAndAlias extends InstrumentedActivity {
 			clearOperator(SIGN);
 	}
 	
-	private setThread findFreeWork() {
+	private setThread findFreeWork(int index) {
 		setThread res = null;
 		setThread temp = null;
+		int nextIndex = index++;
+		int realIndex = 0;
 		
 		for (int i = 0; i < MAX_RESULT; i++) {
 			temp = workerList.get(i);
+			if (temp.getResult() != null) {
+				res = temp;
+				break;
+			}
+		}
+		
+		if (res != null) {
+			return res;
+		}
+		
+		for (int i = 0; i < MAX_RESULT; i++) {
+			realIndex = (nextIndex + i) % MAX_RESULT;
+			temp = workerList.get(realIndex);
 			if (temp.getWorkIsEnd()) {
 				res = temp;
 				break;
@@ -291,7 +304,7 @@ public class SampleSetTAGAndAlias extends InstrumentedActivity {
 			return;
 		}
 		
-		final setThread work = findFreeWork();
+		final setThread work = findFreeWork(excuteIndex);
 		
 		if (work == null) {
 			sentToShowMSG(R.string.maxexcute);

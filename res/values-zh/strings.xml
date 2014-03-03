@@ -35,6 +35,7 @@
 	<string name="titlesetalias">别名设置</string>
 	
 	<string name="titleadvnotification">通知高级设置</string>
+	<string name="clearallnotification">清除所有通知</string>
 	
 	<string name="titlepushtime">推送时间设置</string>
 	<string name="timestart">起始:</string>
@@ -51,6 +52,11 @@
 	<string name="pushtimecomplete">推送时间设置完成.</string>
 	
 	<string name="titlerichpush">富文本推送</string>
+	<string name="richinfo">接收到富媒体后点击打开</string>
+	<string name="fileerror">文件错误</string>
+	<string name="notitle">无标题</string>
+	<string name="newrichpush">新富媒体</string>
+	<string name="fileunsupport">不支持此文件类型</string>
 	
 	<string name="titlepushswitcher">打开\/关闭推送</string>
 	<string name="startpush">打开推送</string>

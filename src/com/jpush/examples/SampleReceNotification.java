@@ -23,12 +23,7 @@ public class SampleReceNotification extends InstrumentedActivity {
 	final private String TAG = "Receive Notification";
 	final private String Delimeter = "-------->";
 	final private int MSG_NEW_RECEIVE = 1;
-	
-	public enum ReceiveType {
-		TYPE_NOTIFICATION,
-		TYPE_MESSAGE
-	}
-	
+		
 	private ListenBroadcast listener;
 	private Handler mHandler;
 	
@@ -69,9 +64,9 @@ public class SampleReceNotification extends InstrumentedActivity {
 			Bundle bundle = intent.getExtras();
 			
 			if (JPushInterface.ACTION_MESSAGE_RECEIVED.equals(intent.getAction())) { 
-				receivingNotification(context, bundle, ReceiveType.TYPE_MESSAGE);
+				receivingNotification(context, bundle, Config.ReceiveType.TYPE_MESSAGE);
 			} else if (JPushInterface.ACTION_NOTIFICATION_RECEIVED.equals(intent.getAction())) {
-				receivingNotification(context, bundle, ReceiveType.TYPE_NOTIFICATION);
+				receivingNotification(context, bundle, Config.ReceiveType.TYPE_NOTIFICATION);
 	 	    } else if (JPushInterface.ACTION_NOTIFICATION_OPENED.equals(intent.getAction())) {
 	 	    	openNotification(context, bundle);
 	        } else {
@@ -80,7 +75,7 @@ public class SampleReceNotification extends InstrumentedActivity {
 		}
 	}
 	
-	private void newReceiveInfo(ReceiveType type) {
+	private void newReceiveInfo(Config.ReceiveType type) {
 		int resID;
 		
 		switch (type) {
@@ -98,14 +93,14 @@ public class SampleReceNotification extends InstrumentedActivity {
 		mHandler.sendMessage(msg);
 	}
 	
-	private void receivingNotification(Context context, Bundle bundle, ReceiveType type){
+	private void receivingNotification(Context context, Bundle bundle, Config.ReceiveType type){
         String title = bundle.getString(JPushInterface.EXTRA_NOTIFICATION_TITLE);
         Lg.d(TAG, " title : " + title);
         String content;
         
-        if (type == ReceiveType.TYPE_NOTIFICATION)
+        if (type == Config.ReceiveType.TYPE_NOTIFICATION)
         	content = bundle.getString(JPushInterface.EXTRA_ALERT);
-        else if (type == ReceiveType.TYPE_MESSAGE)
+        else if (type == Config.ReceiveType.TYPE_MESSAGE)
         	content = bundle.getString(JPushInterface.EXTRA_MESSAGE);
         else
         	content = getString(R.string.unknown);
@@ -119,7 +114,7 @@ public class SampleReceNotification extends InstrumentedActivity {
         
         newReceiveInfo(type);
         displayResult(title, content, extras);
-    } 
+    }
  
    private void openNotification(Context context, Bundle bundle){
         String extras = bundle.getString(JPushInterface.EXTRA_EXTRA);

@@ -36,6 +36,7 @@
 	<string name="titlesetalias">Set Alias</string>
 	
 	<string name="titleadvnotification">Advanced Notification</string>
+	<string name="clearallnotification">Clear All Notification</string>
 	
 	<string name="titlepushtime">Set Push time</string>
 	<string name="timestart">Start:</string>
@@ -52,6 +53,12 @@
 	<string name="pushtimecomplete">Set Push Time complete.</string>
 	
 	<string name="titlerichpush">Rich Push</string>
+	<string name="richinfo">click to open richpush</string>
+	<string name="notitle">No title</string>
+	<string name="fileerror">file error</string>
+	<string name="html">html</string>
+	<string name="newrichpush">New Rich Push</string>
+	<string name="fileunsupport">Unsupport file</string>
 	
 	<string name="titlepushswitcher">Push Service On/Off</string>
 	<string name="startpush">Open Push</string>
