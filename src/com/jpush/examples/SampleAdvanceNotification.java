@@ -9,10 +9,13 @@ import android.os.Bundle;
 import android.view.View;
 
 public class SampleAdvanceNotification extends InstrumentedActivity  {
+	private int latestID = 0;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
+		
+		setContentView(R.layout.advsetting);
 	}
 	
 	class ListenBroadcast extends BroadcastReceiver {
@@ -20,12 +23,15 @@ public class SampleAdvanceNotification extends InstrumentedActivity  {
 		public void onReceive(Context context, Intent intent) {
 			// TODO Auto-generated method stub
 			
-			setContentView(R.layout.advsetting);
 		}
 	}
 	
 	public void clearAllNotification(View v) {
 		JPushInterface.clearAllNotifications(getApplication());
+	}
+	
+	public void clearDedicateNotification(View v) {
+		JPushInterface.clearNotificationById(getApplicationContext(), latestID);
 	}
 
 	@Override

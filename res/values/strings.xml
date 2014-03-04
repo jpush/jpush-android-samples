@@ -37,6 +37,8 @@
 	
 	<string name="titleadvnotification">Advanced Notification</string>
 	<string name="clearallnotification">Clear All Notification</string>
+	<string name="latestnotificationid">display the latest Notify ID</string>
+	<string name="clearlatestnotification">Clear the Dedicate Notify by ID</string>
 	
 	<string name="titlepushtime">Set Push time</string>
 	<string name="timestart">Start:</string>

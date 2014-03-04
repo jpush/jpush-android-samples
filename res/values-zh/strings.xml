@@ -36,6 +36,8 @@
 	
 	<string name="titleadvnotification">通知高级设置</string>
 	<string name="clearallnotification">清除所有通知</string>
+	<string name="latestnotificationid">显示最近一条通知ID</string>
+	<string name="clearlatestnotification">通过ID清除上一条通知</string>
 	
 	<string name="titlepushtime">推送时间设置</string>
 	<string name="timestart">起始:</string>

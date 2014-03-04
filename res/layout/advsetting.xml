@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical" >
@@ -15,14 +15,20 @@
         android:id="@+id/latestNotification"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Large Text"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/clearallnotification"
+        android:layout_marginTop="15dp"
+        android:text="@string/latestnotificationid"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <Button
         android:id="@+id/clearDedicateNotification"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Button"
-        android:onClick="clearDedicateNotification" />
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/latestNotification"
+        android:layout_marginTop="10dp"
+        android:onClick="clearDedicateNotification"
+        android:text="@string/clearlatestnotification" />
 
-</LinearLayout>
+</RelativeLayout>
