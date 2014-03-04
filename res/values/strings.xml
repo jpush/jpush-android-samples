@@ -32,6 +32,8 @@
 	<string name="infosetting">setting</string>
 	<string name="infosucc">success</string>
 	<string name="infofail">failure</string>
+	<string name="filtertag">result of filter invalid tag</string>
+	<string name="settagerror">TAG error</string>
 	
 	<string name="titlesetalias">Set Alias</string>
 	
@@ -39,6 +41,9 @@
 	<string name="clearallnotification">Clear All Notification</string>
 	<string name="latestnotificationid">display the latest Notify ID</string>
 	<string name="clearlatestnotification">Clear the Dedicate Notify by ID</string>
+	<string name="setdefaultnotification">set to change default style of notification</string>
+	<string name="setdedicatenotification">set dedicate style of notification</string>
+	<string name="setcustomnotification">set custom style of notification</string>
 	
 	<string name="titlepushtime">Set Push time</string>
 	<string name="timestart">Start:</string>

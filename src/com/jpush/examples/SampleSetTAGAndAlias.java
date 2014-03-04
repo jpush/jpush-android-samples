@@ -30,6 +30,8 @@ public class SampleSetTAGAndAlias extends InstrumentedActivity {
 	private String excuteResult = "";
 	private int mOperator = 0;/*nothing will set*/
 	
+	private Set<String> invalidTAG = null;
+	
 	final private int SIGN_SET_ALIAS = 0x0001;
 	final private int SIGN_SET_TAG = 0x0010;
 	
@@ -225,7 +227,7 @@ public class SampleSetTAGAndAlias extends InstrumentedActivity {
 	
 	private void refreshResult() {
 		String temp = "";
-		for (int i = MAX_RESULT - 1; i >= 0; i--) {
+		for (int i = 0; i < MAX_RESULT; i++) {
 			temp += workerList.get(i).getResult() + "\n";
 		}
 		
@@ -272,12 +274,10 @@ public class SampleSetTAGAndAlias extends InstrumentedActivity {
 	private setThread findFreeWork(int index) {
 		setThread res = null;
 		setThread temp = null;
-		int nextIndex = index++;
-		int realIndex = 0;
 		
 		for (int i = 0; i < MAX_RESULT; i++) {
 			temp = workerList.get(i);
-			if (temp.getResult() != null) {
+			if (temp.getResult() == null) {
 				res = temp;
 				break;
 			}
@@ -286,6 +286,9 @@ public class SampleSetTAGAndAlias extends InstrumentedActivity {
 		if (res != null) {
 			return res;
 		}
+		
+		int nextIndex = ++index;
+		int realIndex = 0;
 		
 		for (int i = 0; i < MAX_RESULT; i++) {
 			realIndex = (nextIndex + i) % MAX_RESULT;
@@ -333,6 +336,11 @@ public class SampleSetTAGAndAlias extends InstrumentedActivity {
 				return;
 		}
 		
+		if (!checkValidTAGS()) {
+			sentToShowMSG(R.string.settagerror);
+			return;
+		}
+		
 		excuteIndex++;
 		
 		work.setGlobeIndex(excuteIndex);
@@ -341,6 +349,19 @@ public class SampleSetTAGAndAlias extends InstrumentedActivity {
 		work.beginNewSet();
 		
 		sendMSG(MSG_REFRESH);
+	}
+	
+	public boolean checkValidTAGS() {
+		boolean res = false;
+		
+		if (invalidTAG == null)
+			return true;
+		
+		TextView tv = (TextView) findViewById(R.id.filterTAG);
+		tv.setText(invalidTAG.toString());
+		tv.postInvalidate();
+		
+		return res;
 	}
 	
 	private Set<String> getTAGS() {
@@ -354,6 +375,23 @@ public class SampleSetTAGAndAlias extends InstrumentedActivity {
 		Set<String> allTag = new HashSet<String>();
 		
 		Collections.addAll(allTag, arrTags);
+		
+		int orignalSize = allTag.size();
+		int checkedSize = 0;
+		
+		invalidTAG = JPushInterface.filterValidTags(allTag);
+		
+		if (invalidTAG != null)
+			checkedSize = invalidTAG.size();
+		
+		if (checkedSize == orignalSize) /* have invalid tag */
+			invalidTAG = null;
+		else {
+			 if (allTag.removeAll(invalidTAG))
+				 invalidTAG = allTag;
+			 else
+				 sentToShowMSG(" set tag has encounted an internal error!!!!!!!!! ");
+		}
 		
 		return allTag;
 	}
@@ -376,6 +414,7 @@ public class SampleSetTAGAndAlias extends InstrumentedActivity {
 	@Override
 	protected void onDestroy() {
 		// TODO Auto-generated method stub
+		excuteIndex = 0;
 		super.onDestroy();
 	}
 }

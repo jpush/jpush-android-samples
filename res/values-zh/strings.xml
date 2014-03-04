@@ -31,6 +31,8 @@
 	<string name="infosetting">设置中</string>
 	<string name="infosucc">成功</string>
 	<string name="infofail">失败</string>
+	<string name="filtertag">TAG过滤结果</string>
+	<string name="settagerror">TAG含有不合理的字符</string>
 	
 	<string name="titlesetalias">别名设置</string>
 	
@@ -38,6 +40,9 @@
 	<string name="clearallnotification">清除所有通知</string>
 	<string name="latestnotificationid">显示最近一条通知ID</string>
 	<string name="clearlatestnotification">通过ID清除上一条通知</string>
+	<string name="setdefaultnotification">设置替换默认的通知样式</string>
+	<string name="setdedicatenotification">设置指定的通知样式</string>
+	<string name="setcustomnotification">设置自定义通知样式</string>
 	
 	<string name="titlepushtime">推送时间设置</string>
 	<string name="timestart">起始:</string>
