@@ -42,7 +42,13 @@
 	<string name="clearlatestnotification">通过ID清除上一条通知</string>
 	<string name="setdefaultnotification">设置替换默认的通知样式</string>
 	<string name="setdedicatenotification">设置指定的通知样式</string>
+	<string name="setdedicatenotificationwarn">此指定的通知类型已经设置值为1，可以在推送通知的时候选择类型为1即可使用</string>
+	<string name="setdedicatenotificationinfo">添加了一个类型值为1的通知样式，拥有新的图标以及没有振动</string>
 	<string name="setcustomnotification">设置自定义通知样式</string>
+	<string name="setcustomnotificationwarn">此指定的通知类型已经设置值为2，可以在推送通知的时候选择类型为2即可使用</string>
+	<string name="setcustomnotificationinfo">用布局文件添加了一个类型值为2的通知样式，拥有新的图标以及没有声音</string>
+	<string name="setsilenttime">设置通知静音时间</string>
+	<string name="setsilenttimeinfo">静音时间从 %1$s到%2$s</string>
 	
 	<string name="titlepushtime">推送时间设置</string>
 	<string name="timestart">起始:</string>

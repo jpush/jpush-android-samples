@@ -1,6 +1,7 @@
 package com.jpush.examples;
 
 import cn.jpush.android.api.BasicPushNotificationBuilder;
+import cn.jpush.android.api.CustomPushNotificationBuilder;
 import cn.jpush.android.api.InstrumentedActivity;
 import cn.jpush.android.api.JPushInterface;
 import android.app.Notification;
@@ -13,6 +14,7 @@ import android.os.Handler;
 import android.os.Message;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.TimePicker;
 import android.widget.Toast;
 
 public class SampleAdvanceNotification extends InstrumentedActivity  {
@@ -27,6 +29,9 @@ public class SampleAdvanceNotification extends InstrumentedActivity  {
 	private Handler mHandler;
 	private boolean isAddedDedicate = false;
 	private boolean isAddedCustom = false;
+	
+	private TimePicker timeStartPicker;
+	private TimePicker timeEndPicker;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -69,6 +74,16 @@ public class SampleAdvanceNotification extends InstrumentedActivity  {
 				super.handleMessage(msg);
 			}
 		};
+		
+		initTimePicker();
+	}
+
+	public void initTimePicker() {
+		timeStartPicker = (TimePicker) findViewById(R.id.advSettingTimeStart);
+		timeStartPicker.setIs24HourView(true);
+				
+		timeEndPicker = (TimePicker) findViewById(R.id.advSettingTimeEnd);
+		timeEndPicker.setIs24HourView(true);
 	}
 	
 	public void sendMSG(int msgID) {
@@ -133,7 +148,7 @@ public class SampleAdvanceNotification extends InstrumentedActivity  {
 	
 	public void setDedicateNotification(View v) {
 		if (isAddedDedicate) {
-			sendStringMSG("this notification has added as ID 1, you can already use it to receive the notification, you should set the notification style ID with the value 1 to use it!");
+			sendMSG(MSG_SHOW_INFO_WITHMSGID, R.string.setdedicatenotificationwarn);
 			return;
 		}
 		
@@ -144,23 +159,44 @@ public class SampleAdvanceNotification extends InstrumentedActivity  {
 		basic.notificationDefaults = Notification.DEFAULT_SOUND | Notification.DEFAULT_LIGHTS;  // set audio and vibrate
 		JPushInterface.setPushNotificationBuilder(1, basic);
 		
-		sendStringMSG("add a new style of notification with the ID 1 which have a new ICON and without vibrate!!!");
+		sendMSG(MSG_SHOW_INFO_WITHMSGID, R.string.setdedicatenotificationinfo);
 	}
 	
 	public void setCustomNotification(View v) {
 		if (isAddedCustom) {
-			sendStringMSG("this notification has added as ID 2, you can already use it to receive the notification, you should set the notification style ID with the value 1 to use it!");
+			sendMSG(MSG_SHOW_INFO_WITHMSGID, R.string.setcustomnotificationwarn);
 			return;
 		}
 		
 		isAddedCustom = true;
-		BasicPushNotificationBuilder basic = new BasicPushNotificationBuilder(getApplicationContext());
-		basic.statusBarDrawable = R.drawable.notification2;
-		basic.notificationFlags = Notification.FLAG_AUTO_CANCEL;  //set auto disappear
-		basic.notificationDefaults = Notification.DEFAULT_VIBRATE | Notification.DEFAULT_LIGHTS;  // set audio and vibrate
-		JPushInterface.setPushNotificationBuilder(1, basic);
 		
-		sendStringMSG("add a new style of notification with the ID 2 which have a new ICON and without sound!!!");
+		CustomPushNotificationBuilder custom = new CustomPushNotificationBuilder(getApplicationContext(),
+				R.layout.custom_notification, R.id.imageNotify, R.id.titleNotify, R.id.textNotify);
+
+		custom.notificationDefaults = Notification.DEFAULT_VIBRATE | Notification.DEFAULT_LIGHTS;  // set audio and vibrate
+		JPushInterface.setPushNotificationBuilder(2, custom);
+		
+		sendMSG(MSG_SHOW_INFO_WITHMSGID, R.string.setcustomnotificationinfo);
+	}
+	
+	public void setSilentTime(View v) {
+		String result = null;
+		int startH = timeStartPicker.getCurrentHour();
+		int startM = timeStartPicker.getCurrentMinute();
+		
+		int endH = timeEndPicker.getCurrentHour();
+		int endM = timeEndPicker.getCurrentMinute();
+		
+		JPushInterface.setSilenceTime(getApplicationContext(), startH, startM, endH, endM);
+		
+		result = getString(R.string.setsilenttimeinfo);
+		
+		result = String.format(result, Integer.toString(startH) + ":" + Integer.toString(startM)
+				, Integer.toString(endH) + ":" + Integer.toString(endM));
+
+		sendStringMSG(result);
+		
+		
 	}
 
 	@Override

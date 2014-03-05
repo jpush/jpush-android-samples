@@ -43,7 +43,13 @@
 	<string name="clearlatestnotification">Clear the Dedicate Notify by ID</string>
 	<string name="setdefaultnotification">set to change default style of notification</string>
 	<string name="setdedicatenotification">set dedicate style of notification</string>
+	<string name="setdedicatenotificationwarn">this notification has added as ID 1, you can already use it to receive the notification, you should set the notification style ID with the value 1 to use it!</string>
+	<string name="setdedicatenotificationinfo">add a new style of notification with the ID 1 which have a new ICON and without vibrate!!!</string>
 	<string name="setcustomnotification">set custom style of notification</string>
+	<string name="setcustomnotificationwarn">this notification has added as ID 2, you can already use it to receive the notification, you should set the notification style ID with the value 2 to use it!</string>
+	<string name="setcustomnotificationinfo">use layout to add a new style of notification with the ID 2 which have a new ICON and without sound!!!</string>
+	<string name="setsilenttime">Set notification silent time</string>
+	<string name="setsilenttimeinfo">Notification sound is closed from %1$s to %2$s</string>
 	
 	<string name="titlepushtime">Set Push time</string>
 	<string name="timestart">Start:</string>

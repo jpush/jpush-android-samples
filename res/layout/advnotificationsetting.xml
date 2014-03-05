@@ -64,6 +64,36 @@
         android:layout_marginTop="10dp"
         android:onClick="setCustomNotification"
         android:text="@string/setcustomnotification" />
+    
+    <TimePicker
+        android:id="@+id/advSettingTimeStart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/setCustomNotification"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="10dp" />
+    
+    <TimePicker
+        android:id="@+id/advSettingTimeEnd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/setCustomNotification"
+        android:layout_marginTop="15dp"
+        android:layout_marginRight="10dp" />
+    
+    <Button
+        android:id="@+id/setSilentTime"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/advSettingTimeStart"
+        android:layout_marginTop="10dp"
+        android:onClick="setSilentTime"
+        android:text="@string/setsilenttime" />
+    
+    
     </RelativeLayout>
 
 </ScrollView>
