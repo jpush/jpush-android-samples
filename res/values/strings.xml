@@ -42,6 +42,8 @@
 	<string name="latestnotificationid">display the latest Notify ID</string>
 	<string name="clearlatestnotification">Clear the Dedicate Notify by ID</string>
 	<string name="setdefaultnotification">set to change default style of notification</string>
+	<string name="setdefaultnotificationinfo">Replacing default style notification</string>
+	<string name="setdefaultnotificationwarn">Default style of Notification has changed</string>
 	<string name="setdedicatenotification">set dedicate style of notification</string>
 	<string name="setdedicatenotificationwarn">this notification has added as ID 1, you can already use it to receive the notification, you should set the notification style ID with the value 1 to use it!</string>
 	<string name="setdedicatenotificationinfo">add a new style of notification with the ID 1 which have a new ICON and without vibrate!!!</string>

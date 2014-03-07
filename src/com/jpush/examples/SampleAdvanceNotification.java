@@ -29,6 +29,7 @@ public class SampleAdvanceNotification extends InstrumentedActivity  {
 	private Handler mHandler;
 	private boolean isAddedDedicate = false;
 	private boolean isAddedCustom = false;
+	private boolean isAddedDefault = false;
 	
 	private TimePicker timeStartPicker;
 	private TimePicker timeEndPicker;
@@ -65,10 +66,13 @@ public class SampleAdvanceNotification extends InstrumentedActivity  {
 				switch (msg.what) {
 					case MSG_SHOW_INFO_WITHMSGID:
 						Toast.makeText(getApplicationContext(), msg.arg1, Toast.LENGTH_LONG).show();
+						break;
 					case MSG_SHOW_INFO_STRING:
 						Toast.makeText(getApplicationContext(), (CharSequence) msg.obj, Toast.LENGTH_LONG).show();
+						break;
 					case MSG_REFRESH_MSGID:
 						refreshNewMessageID();
+						break;
 				}
 				
 				super.handleMessage(msg);
@@ -137,13 +141,18 @@ public class SampleAdvanceNotification extends InstrumentedActivity  {
 	}
 	
 	public void setDefaultNotification(View v) {
+		if (isAddedDefault) {
+			sendMSG(MSG_SHOW_INFO_WITHMSGID, R.string.setdefaultnotificationwarn);
+			return;
+		}
+		
 		BasicPushNotificationBuilder basic = new BasicPushNotificationBuilder(getApplicationContext());
 		basic.statusBarDrawable = R.drawable.notification;
 		basic.notificationFlags = Notification.FLAG_AUTO_CANCEL;  //set auto disappear
 		basic.notificationDefaults = Notification.DEFAULT_SOUND | Notification.DEFAULT_VIBRATE | Notification.DEFAULT_LIGHTS;  // set audio and vibrate
 		JPushInterface.setDefaultPushNotificationBuilder(basic);
 		
-		sendStringMSG("Default style of Notification has changed");
+		sendMSG(MSG_SHOW_INFO_WITHMSGID, R.string.setdefaultnotificationinfo);
 	}
 	
 	public void setDedicateNotification(View v) {
@@ -204,6 +213,7 @@ public class SampleAdvanceNotification extends InstrumentedActivity  {
 		// TODO Auto-generated method stub
 		isAddedDedicate = false;
 		isAddedCustom = false;
+		isAddedDefault = false;
 		unregisterReceiver(br);
 		super.onDestroy();
 	}

@@ -41,6 +41,8 @@
 	<string name="latestnotificationid">显示最近一条通知ID</string>
 	<string name="clearlatestnotification">通过ID清除上一条通知</string>
 	<string name="setdefaultnotification">设置替换默认的通知样式</string>
+	<string name="setdefaultnotificationinfo">替换默认通知样式</string>
+	<string name="setdefaultnotificationwarn">默认通知样式已经替换</string>
 	<string name="setdedicatenotification">设置指定的通知样式</string>
 	<string name="setdedicatenotificationwarn">此指定的通知类型已经设置值为1，可以在推送通知的时候选择类型为1即可使用</string>
 	<string name="setdedicatenotificationinfo">添加了一个类型值为1的通知样式，拥有新的图标以及没有振动</string>

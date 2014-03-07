@@ -349,6 +349,7 @@ public class SampleSetTAGAndAlias extends InstrumentedActivity {
 		work.beginNewSet();
 		
 		sendMSG(MSG_REFRESH);
+		showSetTAGResultHint();
 	}
 	
 	public boolean checkValidTAGS() {
@@ -361,7 +362,15 @@ public class SampleSetTAGAndAlias extends InstrumentedActivity {
 		tv.setText(invalidTAG.toString());
 		tv.postInvalidate();
 		
+		invalidTAG = null;
+		
 		return res;
+	}
+	
+	public void showSetTAGResultHint() {
+		TextView tv = (TextView) findViewById(R.id.filterTAG);
+		tv.setText("");
+		tv.postInvalidate();
 	}
 	
 	private Set<String> getTAGS() {
