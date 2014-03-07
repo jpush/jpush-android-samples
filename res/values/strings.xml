@@ -51,7 +51,7 @@
 	<string name="setcustomnotificationwarn">this notification has added as ID 2, you can already use it to receive the notification, you should set the notification style ID with the value 2 to use it!</string>
 	<string name="setcustomnotificationinfo">use layout to add a new style of notification with the ID 2 which have a new ICON and without sound!!!</string>
 	<string name="setsilenttime">Set notification silent time</string>
-	<string name="setsilenttimeinfo">Notification sound is closed from %1$s to %2$s</string>
+	<string name="setsilenttimeinfo">Notification sound is closed from %1$02d:%2$02d to %3$02d:%4$02d</string>
 	
 	<string name="titlepushtime">Set Push time</string>
 	<string name="timestart">Start:</string>

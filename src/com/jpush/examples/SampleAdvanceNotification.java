@@ -200,8 +200,7 @@ public class SampleAdvanceNotification extends InstrumentedActivity  {
 		
 		result = getString(R.string.setsilenttimeinfo);
 		
-		result = String.format(result, Integer.toString(startH) + ":" + Integer.toString(startM)
-				, Integer.toString(endH) + ":" + Integer.toString(endM));
+		result = String.format(result, startH, startM, endH, endM);
 
 		sendStringMSG(result);
 		
