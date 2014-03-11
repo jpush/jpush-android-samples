@@ -157,6 +157,8 @@ public class SampleReceNotification extends InstrumentedActivity {
 	   try {
 			JSONObject extrasJson = new JSONObject(json);
 			JSONArray arr = extrasJson.names();
+			if (arr == null)
+				return json;
 			int count = arr.length();
 			String key = null;
 			for (int i = 0; i < count; i++) {
