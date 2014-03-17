@@ -109,6 +109,7 @@ public class SampleSetTAGAndAlias extends InstrumentedActivity {
 	}
 	
 	final class setThread extends Thread {
+		private final int MAX_REPEAT_COUNT = 3;
 		private Handler wHandler;
 		private Runnable runnable;
 		int mIndex;
@@ -117,6 +118,7 @@ public class SampleSetTAGAndAlias extends InstrumentedActivity {
 		int excuteSet = 0;
 		String mResult = "";
 		TagAliasCallback cb;
+		int repeatCount = 0;
 		
 		Set<String> mTags;
 		String mAlias;
@@ -134,7 +136,10 @@ public class SampleSetTAGAndAlias extends InstrumentedActivity {
 					// TODO Auto-generated method stub
 					switch (arg0) {
 						case 6002:/*please refer to http://docs.jpush.cn/pages/viewpage.action?pageId=557241*/
-							repeatSet();
+							if (repeatSet()) {
+								completeSet(arg0);
+								sendMSG(MSG_REFRESH);
+							}
 							break;
 						default:
 							completeSet(arg0);
@@ -170,6 +175,7 @@ public class SampleSetTAGAndAlias extends InstrumentedActivity {
 			mResult = Integer.toString(mGlobleIndex) + Delimeter + excuteToString(excuteSet)
 					+ Delimeter + getString(R.string.infosetting);
 			isEnd = false;
+			repeatCount = 0;
 			
 			runnable = new Runnable() {
 				@Override
@@ -192,8 +198,20 @@ public class SampleSetTAGAndAlias extends InstrumentedActivity {
 			wHandler.post(runnable);
 		}
 		
-		public void repeatSet() {
+		public boolean repeatSet() {
+			repeatCount++;
+			if (repeatCountCheck())
+				return true;
 			wHandler.post(runnable);
+			
+			return false;
+		}
+		
+		private boolean repeatCountCheck() {
+			if (repeatCount >= MAX_REPEAT_COUNT)
+				return true;
+			
+			return false;
 		}
 		
 		/**
