@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Jpush SDK API</string>
+    <string name="app_name">JPush SDK Sample</string>
     
     <string name="developing">developing.</string>
     <string name="unknown">undefined content</string>

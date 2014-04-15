@@ -3,7 +3,10 @@ package com.jpush.examples;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.Set;
+
+import com.jpush.examples.utilities.Lg;
 
 import cn.jpush.android.api.InstrumentedActivity;
 import cn.jpush.android.api.JPushInterface;
@@ -401,12 +404,24 @@ public class SampleSetTAGAndAlias extends InstrumentedActivity {
 		
 		Set<String> allTag = new HashSet<String>();
 		
-		Collections.addAll(allTag, arrTags);
+		for (String temp: arrTags)
+			allTag.add(temp);
+		
+		String test = allTag.toString();
+		
+		Lg.d("test", test);
+		
+		test = test.substring(1, test.length() - 1);
 		
 		int orignalSize = allTag.size();
 		int checkedSize = 0;
 		
-		invalidTAG = JPushInterface.filterValidTags(allTag);
+		if (tags != null && tags.length() == 0) {
+			invalidTAG = null;
+			checkedSize = orignalSize;
+			allTag.clear();
+		} else
+			invalidTAG = JPushInterface.filterValidTags(allTag);
 		
 		if (invalidTAG != null)
 			checkedSize = invalidTAG.size();

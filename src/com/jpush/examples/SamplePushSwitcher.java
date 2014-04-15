@@ -3,7 +3,7 @@ package com.jpush.examples;
 import cn.jpush.android.api.InstrumentedActivity;
 import cn.jpush.android.api.JPushInterface;
 
-import com.jpush.examples.R;
+//import com.jpush.examples.R;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;

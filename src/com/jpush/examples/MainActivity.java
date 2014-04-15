@@ -38,7 +38,7 @@ public class MainActivity extends InstrumentedListActivity {
         setListAdapter(new SimpleAdapter(this, getData(path),
                 android.R.layout.simple_list_item_1, new String[] { "title" },
                 new int[] { android.R.id.text1 }));
-        
+
         JPushInterface.init(this);
     }
     

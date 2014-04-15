@@ -123,6 +123,7 @@ public class SampleAdvanceNotification extends InstrumentedActivity  {
 			return;
 		latestID = INVALID_MSGID;
 		JPushInterface.clearAllNotifications(getApplication());
+
 		refreshLatestNotificationID();
 	}
 	
@@ -149,7 +150,7 @@ public class SampleAdvanceNotification extends InstrumentedActivity  {
 		BasicPushNotificationBuilder basic = new BasicPushNotificationBuilder(getApplicationContext());
 		basic.statusBarDrawable = R.drawable.notification;
 		basic.notificationFlags = Notification.FLAG_AUTO_CANCEL;  //set auto disappear
-		basic.notificationDefaults = Notification.DEFAULT_SOUND | Notification.DEFAULT_VIBRATE | Notification.DEFAULT_LIGHTS;  // set audio and vibrate
+		basic.notificationDefaults = Notification.DEFAULT_SOUND | Notification.DEFAULT_VIBRATE | Notification.DEFAULT_LIGHTS;  // set audio and vibrate  
 		JPushInterface.setDefaultPushNotificationBuilder(basic);
 		
 		sendMSG(MSG_SHOW_INFO_WITHMSGID, R.string.setdefaultnotificationinfo);

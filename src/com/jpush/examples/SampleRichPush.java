@@ -2,8 +2,11 @@ package com.jpush.examples;
 
 import java.io.File;
 
+import com.jpush.examples.utilities.Lg;
+
 import cn.jpush.android.api.InstrumentedActivity;
 import cn.jpush.android.api.JPushInterface;
+import android.annotation.SuppressLint;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -44,6 +47,8 @@ public class SampleRichPush extends InstrumentedActivity {
 					receivingNotification(context, bundle, Config.ReceiveType.TYPE_MESSAGE);
 				} else if (JPushInterface.ACTION_NOTIFICATION_RECEIVED.equals(intent.getAction())) {
 					receivingNotification(context, bundle, Config.ReceiveType.TYPE_NOTIFICATION);
+		 	    } else if (JPushInterface.ACTION_RICHPUSH_CALLBACK.equals(intent.getAction())) {
+					richPushCallback(bundle);
 		 	    } else {
 
 		        }
@@ -54,6 +59,7 @@ public class SampleRichPush extends InstrumentedActivity {
 		filter.addAction(JPushInterface.ACTION_MESSAGE_RECEIVED);
 		filter.addAction(JPushInterface.ACTION_NOTIFICATION_RECEIVED);
 		filter.addAction(JPushInterface.ACTION_NOTIFICATION_OPENED);
+		filter.addAction(JPushInterface.ACTION_RICHPUSH_CALLBACK);
 		filter.addCategory(getPackageName());
 		
 		registerReceiver(br, filter);
@@ -73,10 +79,14 @@ public class SampleRichPush extends InstrumentedActivity {
 		};
 	}
 	
+	private void richPushCallback(Bundle bundle) {
+		Lg.d("test", "richPushCallback 11111111111111111111111111");
+	}
+	
 	private void receivingNotification(Context context, Bundle bundle, Config.ReceiveType type){
 		String filePath = null;
         String fileRes = null;
-        String content = null;
+//        String content = null;
         String title = bundle.getString(JPushInterface.EXTRA_NOTIFICATION_TITLE); 
         String fileType = bundle.getString(JPushInterface.EXTRA_CONTENT_TYPE);
         
@@ -85,14 +95,14 @@ public class SampleRichPush extends InstrumentedActivity {
         }
         
         if (type == Config.ReceiveType.TYPE_NOTIFICATION) {
-        	content = bundle.getString(JPushInterface.EXTRA_ALERT);
+//        	content = bundle.getString(JPushInterface.EXTRA_ALERT);
         	filePath = bundle.getString(JPushInterface.EXTRA_RICHPUSH_HTML_PATH);
         	fileRes = bundle.getString(JPushInterface.EXTRA_RICHPUSH_HTML_RES);
         	
         	constructRichPushHtml(title, fileType, filePath, fileRes);
         }
         else if (type == Config.ReceiveType.TYPE_MESSAGE) {
-        	content = bundle.getString(JPushInterface.EXTRA_MESSAGE);
+//        	content = bundle.getString(JPushInterface.EXTRA_MESSAGE);
         	filePath = bundle.getString(JPushInterface.EXTRA_RICHPUSH_FILE_PATH);
         	constructRichPushVideo(title, fileType, filePath);
         }
@@ -112,7 +122,7 @@ public class SampleRichPush extends InstrumentedActivity {
 			startActivity(intent);
 		else
 			sendMSG(MSG_SHOW_INFO, R.string.fileunsupport);
-		
+
 		multiMediaPath = null;
 	}
 	
@@ -145,6 +155,7 @@ public class SampleRichPush extends InstrumentedActivity {
 		return ext;
 	}
 	
+	@SuppressLint("SetJavaScriptEnabled")
 	private void constructRichPushHtml(String title, String type, String path, String resPath) {
 		if (path == null || path.equals(""))
 			return;
@@ -156,6 +167,7 @@ public class SampleRichPush extends InstrumentedActivity {
 		WebView wbV = (WebView) findViewById(R.id.webView);
 		
 		String lPath = "file:///" + path;
+		wbV.getSettings().setJavaScriptEnabled(true);
 		wbV.loadUrl(lPath);
 		richView = wbV;
 	}
