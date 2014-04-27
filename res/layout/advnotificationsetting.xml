@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+        
+        <Button
+        android:id="@+id/clearallnotification"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/clearallnotification"
+        android:onClick="clearAllNotification" />
+
+    <com.jpush.examples.utilities.BoardTextView
+        android:id="@+id/latestNotification"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/clearallnotification"
+        android:layout_marginTop="15dp"
+        android:gravity="center_horizontal"
+        android:text="@string/latestnotificationid"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <Button
+        android:id="@+id/clearDedicateNotification"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/latestNotification"
+        android:layout_marginTop="10dp"
+        android:onClick="clearDedicateNotification"
+        android:text="@string/clearlatestnotification" />
+    
+    <Button
+        android:id="@+id/setDefaultNotification"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/clearDedicateNotification"
+        android:layout_marginTop="15dp"
+        android:onClick="setDefaultNotification"
+        android:text="@string/setdefaultnotification" />
+    
+    <Button
+        android:id="@+id/setDedicateNotification"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/setDefaultNotification"
+        android:layout_marginTop="10dp"
+        android:onClick="setDedicateNotification"
+        android:text="@string/setdedicatenotification" />
+    
+    <Button
+        android:id="@+id/setCustomNotification"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/setDedicateNotification"
+        android:layout_marginTop="10dp"
+        android:onClick="setCustomNotification"
+        android:text="@string/setcustomnotification" />
+    
+    <TimePicker
+        android:id="@+id/advSettingTimeStart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/setCustomNotification"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="10dp" />
+    
+    <TimePicker
+        android:id="@+id/advSettingTimeEnd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/setCustomNotification"
+        android:layout_marginTop="15dp"
+        android:layout_marginRight="10dp" />
+    
+    <Button
+        android:id="@+id/setSilentTime"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/advSettingTimeStart"
+        android:layout_marginTop="10dp"
+        android:onClick="setSilentTime"
+        android:text="@string/setsilenttime" />
+    
+    
+    </RelativeLayout>
+
+</ScrollView>

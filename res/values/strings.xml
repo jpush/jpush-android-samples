@@ -1,8 +1,91 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
-    <string name="app_name">JpushExamples</string>
-    <string name="hello_world">Hello world!</string>
-    <string name="menu_settings">Settings</string>
-
+    <string name="app_name">JPush SDK Sample</string>
+    
+    <string name="developing">developing.</string>
+    <string name="unknown">undefined content</string>
+    
+    <string name="set">Set</string>
+    
+	<string name="titlernAndRm">Receive Notification and Message</string>
+	<string name="receive_notification_clear">clear</string>
+	<string name="rece_noti_title_description">receive the latest notification, if there is a title, then it will display here</string>
+	<string name="rece_noti_content_description">the latest notification content should also display here, include extra info with json format</string>
+	<string name="newnotification">receive a new notification</string>
+	<string name="newmessage">receive a new message</string>
+	<string name="noextra">no extras</string>
+	
+	<string name="titlesettagalias">Set Alias and TAG</string>
+	<string name="aliashint">here can set an alias</string>
+	<string name="taghint">"here can set tag, such as tag1,tag2,blank will clear all tag"</string>
+	<string name="excuteset">set</string>
+	<string name="resultofset">result of set:number—operator—result(return code)</string>
+	<string name="warningalias">alias will be cleared</string>
+	<string name="warningtag">TAG will be cleared</string>
+	<string name="warningall">TAG and alias will be cleared</string>
+	<string name="infoalias">start set alias</string>
+	<string name="infotag">start set TAG</string>
+	<string name="infoall">start set TAG and alias</string>
+	<string name="excuteresult">"%1$s(%2$d)"</string>
+	<string name="maxexcute">Please wait for at least one operation has finished</string>
+	<string name="infotoset">Please selete an operator at least</string>
+	<string name="infosetting">setting</string>
+	<string name="infosucc">success</string>
+	<string name="infofail">failure</string>
+	<string name="filtertag">result of filter invalid tag</string>
+	<string name="settagerror">TAG error</string>
+	
+	<string name="titlesetalias">Set Alias</string>
+	
+	<string name="titleadvnotification">Advanced Notification</string>
+	<string name="clearallnotification">Clear All Notification</string>
+	<string name="latestnotificationid">display the latest Notify ID</string>
+	<string name="clearlatestnotification">Clear the Dedicate Notify by ID</string>
+	<string name="setdefaultnotification">set to change default style of notification</string>
+	<string name="setdefaultnotificationinfo">Replacing default style notification</string>
+	<string name="setdefaultnotificationwarn">Default style of Notification has changed</string>
+	<string name="setdedicatenotification">set dedicate style of notification</string>
+	<string name="setdedicatenotificationwarn">this notification has added as ID 1, you can already use it to receive the notification, you should set the notification style ID with the value 1 to use it!</string>
+	<string name="setdedicatenotificationinfo">add a new style of notification with the ID 1 which have a new ICON and without vibrate!!!</string>
+	<string name="setcustomnotification">set custom style of notification</string>
+	<string name="setcustomnotificationwarn">this notification has added as ID 2, you can already use it to receive the notification, you should set the notification style ID with the value 2 to use it!</string>
+	<string name="setcustomnotificationinfo">use layout to add a new style of notification with the ID 2 which have a new ICON and without sound!!!</string>
+	<string name="setsilenttime">Set notification silent time</string>
+	<string name="setsilenttimeinfo">Notification sound is closed from %1$02d:%2$02d to %3$02d:%4$02d</string>
+	
+	<string name="titlepushtime">Set Push time</string>
+	<string name="timestart">Start:</string>
+	<string name="timeend">End</string>
+	<string name="sunday">Sun.</string>
+	<string name="monday">Mon.</string>
+	<string name="tuesday">Tues.</string>
+	<string name="wednesday">Wedn.</string>
+	<string name="thursday">Thur.</string>
+	<string name="friday">Fri.</string>
+	<string name="saturday">sat.</string>
+	<string name="pushtimeerror">Please select a day at least</string>
+	<string name="pushtimesameerror">Start hour and end hour should be different</string>
+	<string name="pushtimecomplete">Set Push Time complete.</string>
+	
+	<string name="titlerichpush">Rich Push</string>
+	<string name="richinfo">click to open richpush</string>
+	<string name="notitle">No title</string>
+	<string name="fileerror">file error</string>
+	<string name="html">html</string>
+	<string name="newrichpush">New Rich Push</string>
+	<string name="fileunsupport">Unsupport file</string>
+	
+	<string name="titlepushswitcher">Push Service On/Off</string>
+	<string name="startpush">Open Push</string>
+	<string name="closepush">Close Push</string>
+	<string name="pushstatus">service status:%1$s</string>
+	<string name="ispushstop">click to get if push is open</string>
+	<string name="running">running</string>
+	<string name="closing">closing</string>
+	
+	<string name="titlesetdebug">Set debug</string>
+	<string name="debugopen">Debug Open</string>
+	<string name="debugclose">Debug close</string>
+	<string name="debuginfoopen">you have open SDK debug, you can see SDK log file in logcat with the tag "JPush" now!</string>
+	<string name="debuginfoclose">SDK close debug</string>
 </resources>
